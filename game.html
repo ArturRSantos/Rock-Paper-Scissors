@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Games</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contentor">
+      <nav class="navbar">
+        <a href="/gameIdeas.html" class="navbarLinks">
+          <p>Game Ideas</p>
+        </a>
+        <a href="/index.html" class="navbarLinks">
+          <p>Home</p>
+        </a>
+        <a href="/autor.html" class="navbarLinks">
+          <p>Autor</p>
+        </a>
+      </nav>
+      <header class="heroSection">
+        <h1 class="heroSectionContent">Games</h1>
+      </header>
+      <section class="section">
+        <div class="game">
+          <h1>&#9977; Pedra, Papel ou Tesoura &#128103;</h1>
+          <div class="gameControls">
+            <div class="column">
+              <p class="optionStyle">&#129307;</p>
+              <button class="options">Rock</button>
+            </div>
+            <div class="column">
+              <p class="optionStyle">&#x1F91A;</p>
+              <button class="options">Paper</button>
+            </div>
+            <div class="column">
+              <p class="optionStyle">&#9996;</p>
+              <button class="options">Scissors</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section2">
+        <h1 class="sectionContent2">Blackjack</h1>
+        <p>Coming soon...</p>
+      </section>
+      <footer class="footer">
+        <p class="footerContent">Artur Santos © 2022</p>
+      </footer>
+    </div>
+    <script>
+      const options = document.querySelectorAll('.options');
+
+      options.forEach((option) => {
+        option.addEventListener('click', function () {
+          const pInput = this.textContent;
+
+          const cOptions = ['Rock', 'Paper', 'Scissors'];
+          const cInput = cOptions[Math.floor(Math.random() * 3)];
+
+          compareInputs(pInput, cInput);
+        });
+      });
+
+      function compareInputs(pInput, cInput) {
+        const currentMatch = `Jogardor ---> ${pInput} \nComputador ---> ${cInput}`;
+
+        // Tie check
+        if (pInput === cInput) {
+          alert(`${currentMatch} \nResultado: Empate`);
+          return;
+        }
+
+        // Rock
+        if (pInput === 'Rock') {
+          if (cInput === 'Scissors') {
+            alert(`${currentMatch} \nYou Win`);
+          } else {
+            alert(`${currentMatch} \nComputador Wins`);
+          }
+        }
+        // Paper
+        else if (pInput === 'Paper') {
+          if (cInput === 'Rock') {
+            alert(`${currentMatch} \nYou Win`);
+          } else {
+            alert(`${currentMatch} \nComputador Wins`);
+          }
+        }
+        // Scissors
+        else if (pInput === 'Scissors') {
+          if (cInput === 'Paper') {
+            alert(`${currentMatch} \nYou Win`);
+          } else {
+            alert(`${currentMatch} \nComputador Wins`);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
